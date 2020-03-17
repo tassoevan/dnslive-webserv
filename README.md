@@ -30,3 +30,8 @@ or add to crontab
 2. You'll need to put that apikey in webhost.js
 3. You'll need to keep hsd running.
 
+### Copyright
+Copyright (c) The Handshake Community
+
+MIT Licensed
+
