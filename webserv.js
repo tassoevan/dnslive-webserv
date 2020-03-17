@@ -15,7 +15,7 @@ app.get('/*', async function(req, res) {
   }
   else {
     // Check if path exists
-    if (!fs.existsSync(wwwroot+url)) {
+    if (!fs.existsSync(wwwroot+url) || (wwwroot+url).includes("..")) {
       res.status(404).send('<html><head><title>404 Not Found</title></head><body>The file could not be found.</body></html>');
     }
     else {
