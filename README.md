@@ -24,6 +24,9 @@ or add to crontab
 * * * * * cd /path/to/webhost.js && node webhost.js >> webhost.log
 * * * * * cd /path/to/webserv.js && node webserv.js >> webserv.log
 ```
+If you want port 80 support, webserv.js needs to run as root (so put in root's crontab).
+The crontab basically runs every minute and won't work if a server is already bound to port 80/5050.
+You can also create an immortal or systemd file if you prefer.
 
 ### Other Things You'll Need to do
 1. You need to create an apikey and run [hsd](https://github.com/handshake-org/hsd) with the apikey.
