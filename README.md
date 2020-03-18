@@ -1,5 +1,6 @@
 # dnslive webhosting server
 ## Quick and simple web hosting server for Handshake Naming System Top Level Domain Zones
+### Works with handshake for signature verification on upload and provides signature to clients when serving for verification on download
 Clients can just POST or use the [DNS Live webhost client](https://github.com/realrasengan/dnslive-webhost) to upload their files to this server.
 
 They simply need to provide a signature of the file they wish to upload signed by the address and key associated with the domain/tld.
