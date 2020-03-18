@@ -15,7 +15,10 @@ app.get('/*', async function(req, res) {
   }
   else {
     // Check if path exists
-    if (!fs.existsSync(wwwroot+url) || (wwwroot+url).includes("..")) {
+    if (!fs.existsSync(wwwroot+url)
+                    || (fs.lstatSync(wwwroot+url).isDirectory() && !fs.existsSync(wwwroot+url+"/index.html.sig"))
+                    || (!fs.lstatSync(wwwroot+url).isDirectory() && !fs.existsSync(wwwroot+url+".sig"))
+                    || (wwwroot+url).includes("..")) {
       res.status(404).send('<html><head><title>404 Not Found</title></head><body>The file could not be found.</body></html>');
     }
     else {
@@ -24,6 +27,7 @@ app.get('/*', async function(req, res) {
         // if path is a dir and index.html exists, output index.html
         if(fs.existsSync(wwwroot+url+"/index.html")) {
           res.header("Content-Type","text/html");
+          res.header("Signature",fs.readFileSync(wwwroot+url+"/index.html"+".sig"));
           res.send(fs.readFileSync(wwwroot+url+"/index.html"));
           console.log("Serving "+wwwroot+url+"/index.html");
         }
@@ -44,6 +48,7 @@ app.get('/*', async function(req, res) {
       else {
         mime = xm.mimetypeOf(wwwroot+url);
         res.header("Content-Type",mime);
+        res.header("Signature",fs.readFileSync(wwwroot+url+".sig"));
         res.send(fs.readFileSync(wwwroot+url));
         console.log("Serving "+wwwroot+url);
       }

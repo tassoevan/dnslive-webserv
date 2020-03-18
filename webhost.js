@@ -70,6 +70,7 @@ app.post('/', async function(req, res) {
 
             // Write File
             fs.writeFileSync("wwwroot/"+zone+"/"+path, Buffer.from(data,'base64').toString('ascii'));
+            fs.writeFileSync("wwwroot/"+zone+"/"+path+".sig", sig);
             res.send("OK");
             console.log("Writing "+zone+"/"+path);
           }
