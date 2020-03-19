@@ -5,7 +5,7 @@ Clients can just POST or use the [DNS Live webhost client](https://github.com/re
 
 They simply need to provide a signature of the file they wish to upload signed by the address and key associated with the domain/tld.
 
-This should not be used for production quality websites/DNS but is great for personal use!  For more info see [dns.live](https://dns.live).
+This should not be used for production quality websites/DNS but is great for personal use!  For more info see [dns.live](https://dns.live) or join #dnslive on Freenode.
 
 *** If you have a handshake resolver setup, visit [http://ix/](http://ix/) which is hosted using dnslive-cli at the DNS level and hosted using dnslive-webhost at the web level. ***
 
